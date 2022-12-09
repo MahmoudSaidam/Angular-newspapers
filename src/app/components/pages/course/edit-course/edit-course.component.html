@@ -1,0 +1,64 @@
+<p-dialog [modal]="true" [(visible)]="display" [responsive]="true" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '40vw'}">
+    <ng-template pTemplate="header">
+        Header content here
+    </ng-template>
+    <form [formGroup]="formEducations">
+        <div class="row mb-2">
+
+            <div class="col-md-4 col-lg-4">
+                <label class=" col-form-label required">Majors</label>
+
+
+            </div>
+
+
+            <div class="col-md-4 col-lg-4">
+                <label class="col-form-label required">City</label>
+
+            </div>
+
+
+
+        </div>
+        <div class="row mb-2">
+
+            <div class="col-md-4 col-lg-4">
+                <label class="col-form-label required">University</label>
+
+            </div>
+            <div class="col-md-4 col-lg-4">
+                <label class="col-form-label required">Education Level</label>
+
+            </div>
+            <div class="col-md-4 col-lg-4">
+                <label class="col-form-label required">Present Status</label>
+
+            </div>
+        </div>
+
+
+
+        <div class="row mb-2">
+
+            <div class="col-md-4 col-lg-4">
+                <label class="col-form-label required">Start Date</label>
+                <input type="date" class="form-control" formControlName="startDate">
+
+            </div>
+
+
+            <div class="col-md-4 col-lg-4">
+                <label class="col-form-label pt-4"></label>
+                <button type="submit" class="btn btn-block btn-primary" (click)="OnSaveEducations()">Save Changes</button>
+            </div>
+        </div>
+
+
+
+
+
+    </form>
+    <ng-template pTemplate="footer">
+
+    </ng-template>
+</p-dialog>

@@ -1,0 +1,91 @@
+<section class="section">
+    <div class="row">
+        <div class="col-lg-6">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Create Book</h5>
+
+                    <!-- Horizontal Form -->
+                    <form [formGroup]="formbook">
+                        <div class="row mb-2">
+
+                            <div class="col-sm-6">
+                                <label for="inputEmail3" class="col-sm-6 col-form-label">Your Name</label>
+                                <input type="text" class="form-control" formControlName="name" id="inputText" [ngClass]="{'control-error':(submitted && !formbook.controls['name'].valid)}">
+                                <div class="alert-errors" *ngIf="(formbook.controls['name']?.touched  && !formbook.controls['name'].valid) ||
+                                (submitted && !formbook.controls['name'].valid)">
+                                    Please enter book name
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="inputEmail3" class="col-sm-6 col-form-label">Decription</label>
+                                <input type="text" class="form-control" formControlName="details" id="inputEmail" [ngClass]="{'control-error':(submitted && !formbook.controls['details'].valid)}">
+                                <div class="alert-errors" *ngIf="(formbook.controls['details']?.touched  && !formbook.controls['details'].valid) ||
+                                (submitted && !formbook.controls['details'].valid)">
+                                    Please enter Decription
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="inputPassword3" class="col-sm-6 col-form-label">Status</label>
+                                <input type="text" class="form-control" formControlName="status" id="inputPassword">
+                            </div>
+
+
+                            <div class="col-sm-6">
+                                <label for="inputPassword3" class="col-sm-6 col-form-label">Category</label>
+
+                                <select class="form-select" id="validationDefault04" formControlName="category_id" [ngClass]="{'control-error':(submitted && !formbook.controls['category_id'].valid)}">
+                                    <option *ngFor="let categ of categories" [value]="categ.id">
+                                      {{categ.Title}}
+                              </option>
+
+                                  </select>
+
+                                <div class="alert-errors" *ngIf="(formbook.controls['category_id']?.touched  && !formbook.controls['category_id'].valid) ||
+                                (submitted && !formbook.controls['category_id'].valid)">
+                                    Please enter Category
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-12">
+                                <form>
+                                    <label for="inputNumber" class="col-sm-4 col-form-label">File Upload</label>
+                                    <input class="form-control" type="file" formControlName="images" (change)="uploadimage($event)" id="formFile">
+
+                                    <div *ngIf="image" class="progress my-3">
+                                        <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: 25%;border-radius: 0px!important;" attr.aria-valuenow="{{ prograssbar }}" [ngStyle]="{ width: prograssbar + '%' }" aria-valuemin="0" aria-valuemax="100">
+                                            {{prograssbar}}%
+                                        </div>
+                                    </div>
+
+
+                                </form>
+                            </div>
+
+                        </div>
+
+
+                        <div class="text-right">
+                            <button type="submit" (click)="onsubmit()" class="btn btn-success">Create</button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+</section>
